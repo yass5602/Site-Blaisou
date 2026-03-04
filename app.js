@@ -157,3 +157,53 @@ if (document.readyState === "loading") {
 } else {
   init();
 }
+// ===== MENU BURGER =====
+const navbarToggle = document.getElementById("navbarToggle");
+const navbarLinks = document.getElementById("navbarLinks");
+const navbarOverlay = document.getElementById("navbarOverlay");
+const navLinks = navbarLinks.querySelectorAll("a");
+
+// Fonction pour ouvrir/fermer le menu
+function toggleMenu() {
+  const isActive = navbarLinks.classList.contains("active");
+
+  if (isActive) {
+    closeMenu();
+  } else {
+    openMenu();
+  }
+}
+
+function openMenu() {
+  navbarLinks.classList.add("active");
+  navbarOverlay.classList.add("active");
+  navbarToggle.classList.add("active");
+  navbarToggle.setAttribute("aria-expanded", "true");
+  document.body.style.overflow = "hidden"; // Empêche le scroll
+}
+
+function closeMenu() {
+  navbarLinks.classList.remove("active");
+  navbarOverlay.classList.remove("active");
+  navbarToggle.classList.remove("active");
+  navbarToggle.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = ""; // Réactive le scroll
+}
+
+// Event listeners
+navbarToggle.addEventListener("click", toggleMenu);
+navbarOverlay.addEventListener("click", closeMenu);
+
+// Fermer le menu lors du clic sur un lien
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    closeMenu();
+  });
+});
+
+// Fermer le menu avec la touche Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && navbarLinks.classList.contains("active")) {
+    closeMenu();
+  }
+});
