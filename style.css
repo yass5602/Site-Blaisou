@@ -826,13 +826,17 @@ footer {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .hero-content {
     grid-template-columns: 1fr 1fr;
   }
 
   .hero-text h1 {
     font-size: 3rem;
+  }
+
+  .testimonial-images {
+    grid-template-columns: 1fr;
   }
 
   .testimonial-card {
