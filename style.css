@@ -229,7 +229,6 @@ footer {
 /* Background image avec dégradé en bas */
 .hero::before {
   content: "";
-  width: 100%;
   height: 100vh;
   z-index: -1;
 }
@@ -255,6 +254,7 @@ footer {
 
 .hero-text {
   text-align: center;
+  margin: 0 auto;
 }
 
 .hero-text h1 {
@@ -405,6 +405,8 @@ section {
 
 .testimonial-img {
   position: relative;
+  width: 90%;
+  height: 50%;
 }
 
 .testimonial-img .img-placeholder img {
@@ -840,7 +842,7 @@ footer {
   }
 
   .testimonial-card {
-    flex: 0 0 calc(50% - 12px);
+    flex: 0 0 calc(10% - 5px);
   }
 
   .target-grid {
