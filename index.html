@@ -20,23 +20,30 @@
   <body>
     <!-- NAVBAR -->
     <nav class="navbar" role="navigation" aria-label="Navigation principale">
-        <div class="navbar-overlay" id="navbarOverlay"></div>
-          <div class="navbar-content">
-            <a href="#" class="navbar-logo" aria-label="Blaisou - Accueil"><img src="./Element_blaisou/img_blaisou/Logo_b.png" alt="logo" /></a>
-            
-            <button class="navbar-toggle" id="navbarToggle" aria-label="Menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-            <div class="navbar-links" id="navbarLinks">
-                <a href="#temoignages">Témoignages</a>
-                <a href="#process">Process</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#qa">Q&A</a>
-            </div>
+      <div class="navbar-overlay" id="navbarOverlay"></div>
+      <div class="navbar-content">
+        <a href="#" class="navbar-logo" aria-label="Blaisou - Accueil"
+          ><img src="./Element_blaisou/img_blaisou/Logo_b.png" alt="logo"
+        /></a>
+
+        <button
+          class="navbar-toggle"
+          id="navbarToggle"
+          aria-label="Menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="navbar-links" id="navbarLinks">
+          <a href="#temoignages">Témoignages</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#qa">Q&A</a>
         </div>
+      </div>
     </nav>
     <main>
       <!-- HERO SECTION -->
@@ -61,9 +68,7 @@
                 >Contacte-moi</a
               >
             </div>
-            <div class="hero-image">
-              <!-- Remplacer ce div par : <img src="chemin/vers/photo-coach.png" alt="Blaisou - Coach sportif"> -->
-            </div>
+            <div class="hero-image"></div>
           </div>
         </div>
       </section>
@@ -81,181 +86,290 @@
               aria-label="Témoignages clients"
             >
               <div class="testimonials-track" id="testimonialsTrack">
-                <!-- Testimonial 1 -->
+                <!-- Testimonial 1 — Lucas -->
                 <article class="testimonial-card">
-                  <div class="testimonial-images">
-                    <div class="testimonial-img">
-                      <div class="img-placeholder">
-                        <img
-                          src="./Element_blaisou/img_temoignage/Lucas-AV.jpg"
-                          alt="Avant1" 
-                        />
-                      </div>
-                      <span aria-label="Photo avant transformation">Avant</span>
+                  <div class="ba-wrap" data-pct="50">
+                    <img
+                      class="ba-img ba-before"
+                      src="./Element_blaisou/img_temoignage/Lucas-AP.jpg"
+                      alt="Lucas avant"
+                    />
+                    <img
+                      class="ba-img ba-after"
+                      src="./Element_blaisou/img_temoignage/Lucas-AV.jpg"
+                      alt="Lucas après"
+                    />
+                    <div class="ba-divider"></div>
+                    <div class="ba-handle">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                      </svg>
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
                     </div>
-                    <div class="testimonial-img">
-                      <div class="img-placeholder">
-                        <img
-                          src="./Element_blaisou/img_temoignage/Lucas-AP.jpg"
-                          alt="Avant"
-                        />
-                      </div>
-                      <span aria-label="Photo après transformation">Après</span>
-                    </div>
+                    <span class="ba-label ba-label--before">Avant</span>
+                    <span class="ba-label ba-label--after">Après</span>
                   </div>
-                  <p class="testimonial-result">+5kg de muscles</p>
-                  <p class="testimonial-text">
-                    mars 2024 / octobre 2025
-                  </p>
-                  <p class="testimonial-author">Lucas, 22 ans</p>
+                  <div class="card-body">
+                    <p class="testimonial-author">Lucas, 22 ans</p>
+                    <p class="testimonial-result">+5kg de muscles</p>
+                    <p class="testimonial-text">mars 2024 / octobre 2025</p>
+                  </div>
                 </article>
 
-                <!-- Testimonial 6 -->
+                <!-- Testimonial 2 — Blaisou -->
                 <article class="testimonial-card">
-                  <div class="testimonial-images">
-                    <div class="testimonial-img">
-                      <div class="img-placeholder">
-                        <img
-                          src="./Element_blaisou/img_temoignage/Blaisou-AVANT.JPG"
-                          alt="Avant"
-                        />
-                      </div>
-                      <span aria-label="Photo avant transformation">Avant</span>
+                  <div class="ba-wrap" data-pct="50">
+                    <img
+                      class="ba-img ba-before"
+                      src="./Element_blaisou/img_temoignage/Blaisou-APRES.JPG"
+                      alt="Blaisou avant"
+                    />
+                    <img
+                      class="ba-img ba-after"
+                      src="./Element_blaisou/img_temoignage/Blaisou-AVANT.JPG"
+                      alt="Blaisou après"
+                    />
+                    <div class="ba-divider"></div>
+                    <div class="ba-handle">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                      </svg>
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
                     </div>
-                    <div class="testimonial-img">
-                      <div class="img-placeholder">
-                        <img
-                          src="./Element_blaisou/img_temoignage/Blaisou-APRES.JPG"
-                          alt="Apres"
-                        />
-                      </div>
-                      <span aria-label="Photo après transformation">Après</span>
-                    </div>
+                    <span class="ba-label ba-label--before">Avant</span>
+                    <span class="ba-label ba-label--after">Après</span>
                   </div>
-                  <p class="testimonial-result">
-                    +13kg de muscles <p>juillet 2022 / novembre 2025</p>
-                  </p>
-                  <p class="testimonial-text"></p>
-                  <p class="testimonial-author">Blaisou, 22 ans</p>
+                  <div class="card-body">
+                    <p class="testimonial-author">Blaisou, 22 ans</p>
+                    <p class="testimonial-result">+13kg de muscles</p>
+                    <p class="testimonial-text">juillet 2022 / novembre 2025</p>
+                  </div>
                 </article>
 
-                <!-- Testimonial 4 -->
+                <!-- Testimonial 3 — Hamadine -->
                 <article class="testimonial-card">
-                  <div class="testimonial-images">
-                    <div class="testimonial-img">
-                      <div class="img-placeholder">
-                        <img
-                          src="./Element_blaisou/img_temoignage/Hamadine-AV.jpg"
-                          alt="Avant"
-                        />
-                      </div>
-                      <span aria-label="Photo avant transformation">Avant</span>
+                  <div class="ba-wrap" data-pct="50">
+                    <img
+                      class="ba-img ba-before"
+                      src="./Element_blaisou/img_temoignage/Hamadine-AP.jpg"
+                      alt="Hamadine avant"
+                    />
+                    <img
+                      class="ba-img ba-after"
+                      src="./Element_blaisou/img_temoignage/Hamadine-AV.jpg"
+                      alt="Hamadine après"
+                    />
+                    <div class="ba-divider"></div>
+                    <div class="ba-handle">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                      </svg>
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
                     </div>
-                    <div class="testimonial-img">
-                      <div class="img-placeholder">
-                        <img
-                          src="./Element_blaisou/img_temoignage/Hamadine-AP.jpg"
-                          alt="Avant"
-                        />
-                      </div>
-                      <span aria-label="Photo après transformation">Après</span>
-                    </div>
+                    <span class="ba-label ba-label--before">Avant</span>
+                    <span class="ba-label ba-label--after">Après</span>
                   </div>
-                  <p class="testimonial-result">+2kg de muscles</p>
-                  <p class="testimonial-text"> mai 2025 / février 2026
-                  </p>
-                  <p class="testimonial-author">Hamadine, 22 ans</p>
+                  <div class="card-body">
+                    <p class="testimonial-author">Hamadine, 22 ans</p>
+                    <p class="testimonial-result">+2kg de muscles</p>
+                    <p class="testimonial-text">mai 2025 / février 2026</p>
+                  </div>
                 </article>
 
-                <!-- Testimonial 2 -->
+                <!-- Testimonial 4 — Enzo -->
                 <article class="testimonial-card">
-                  <div class="testimonial-images">
-                    <div class="testimonial-img">
-                      <div class="img-placeholder">
-                        <img
-                          src="./Element_blaisou/img_temoignage/Enzo-AV.PNG"
-                          alt="Avant"
-                        />
-                      </div>
-                      <span aria-label="Photo avant transformation">Avant</span>
+                  <div class="ba-wrap" data-pct="50">
+                    <img
+                      class="ba-img ba-before"
+                      src="./Element_blaisou/img_temoignage/Enzo-AP.PNG"
+                      alt="Enzo avant"
+                    />
+                    <img
+                      class="ba-img ba-after"
+                      src="./Element_blaisou/img_temoignage/Enzo-AV.JPG"
+                      alt="Enzo après"
+                    />
+                    <div class="ba-divider"></div>
+                    <div class="ba-handle">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                      </svg>
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
                     </div>
-                    <div class="testimonial-img">
-                      <div class="img-placeholder">
-                        <img
-                          src="./Element_blaisou/img_temoignage/Enzo-AP.JPG"
-                          alt="Avant"
-                        />
-                      </div>
-                      <span aria-label="Photo après transformation">Après</span>
-                    </div>
+                    <span class="ba-label ba-label--before">Avant</span>
+                    <span class="ba-label ba-label--after">Après</span>
                   </div>
-                  <p class="testimonial-result">-13kg en 6 mois</p>
-                  <p class="testimonial-text">
-                    “Je commençais à tomber en dépression, tu m’as remonté le
-                    moral comme jamais. L’évolution et le travail sont juste
-                    fous, j’en suis entièrement satisfait et reconnaissant.”
-                  </p>
-                  <p class="testimonial-author">Enzo, 18 ans</p>
+                  <div class="card-body">
+                    <p class="testimonial-author">Enzo, 18 ans</p>
+                    <p class="testimonial-result">-13kg en 6 mois</p>
+                    <p class="testimonial-text">
+                      "Je commençais à tomber en dépression, tu m'as remonté le
+                      moral comme jamais. L'évolution et le travail sont juste
+                      fous, j'en suis entièrement satisfait et reconnaissant."
+                    </p>
+                  </div>
                 </article>
 
-                <!-- Testimonial 3 -->
+                <!-- Testimonial 5 — Ambroise -->
                 <article class="testimonial-card">
-                  <div class="testimonial-images">
-                    <div class="testimonial-img">
-                      <div class="img-placeholder">
-                        <img
-                          src="./Element_blaisou/img_temoignage/ambroise-AV.jpg"
-                          alt="Avant"
-                        />
-                      </div>
-                      <span aria-label="Photo avant transformation">Avant</span>
+                  <div class="ba-wrap" data-pct="50">
+                    <img
+                      class="ba-img ba-before"
+                      src="./Element_blaisou/img_temoignage/ambroise-AP.jpg"
+                      alt="Ambroise avant"
+                    />
+                    <img
+                      class="ba-img ba-after"
+                      src="./Element_blaisou/img_temoignage/ambroise-AV.PNG"
+                      alt="Ambroise après"
+                    />
+                    <div class="ba-divider"></div>
+                    <div class="ba-handle">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                      </svg>
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
                     </div>
-                    <div class="testimonial-img">
-                      <div class="img-placeholder">
-                        <img
-                          src="./Element_blaisou/img_temoignage/ambroise-AP.PNG"
-                          alt="Avant"
-                        />
-                      </div>
-                      <span aria-label="Photo après transformation">Après</span>
-                    </div>
+                    <span class="ba-label ba-label--before">Avant</span>
+                    <span class="ba-label ba-label--after">Après</span>
                   </div>
-                  <p class="testimonial-result">+8kg en 2 mois</p>
-                  <p class="testimonial-text">
-                  </p>
-                  <p class="testimonial-author">Ambroise, 24 ans</p>
+                  <div class="card-body">
+                    <p class="testimonial-author">Ambroise, 24 ans</p>
+                    <p class="testimonial-result">+8kg en 2 mois</p>
+                    <p class="testimonial-text"></p>
+                  </div>
                 </article>
 
-                <!-- Testimonial 5 -->
+                <!-- Testimonial 6 — Yas -->
                 <article class="testimonial-card">
-                  <div class="testimonial-images">
-                    <div class="testimonial-img">
-                      <div class="img-placeholder">
-                        <img
-                          src="./Element_blaisou/img_temoignage/Yas-AV.jpg"
-                          alt="Avant"
-                        />
-                      </div>
-                      <span aria-label="Photo avant transformation">Avant</span>
+                  <div class="ba-wrap" data-pct="50">
+                    <img
+                      class="ba-img ba-before"
+                      src="./Element_blaisou/img_temoignage/Yas-AP.jpg"
+                      alt="Yas avant"
+                    />
+                    <img
+                      class="ba-img ba-after"
+                      src="./Element_blaisou/img_temoignage/Yas-AV.jpg"
+                      alt="Yas après"
+                    />
+                    <div class="ba-divider"></div>
+                    <div class="ba-handle">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                      </svg>
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
                     </div>
-                    <div class="testimonial-img">
-                      <div class="img-placeholder">
-                        <img
-                          src="./Element_blaisou/img_temoignage/Yas-AP.jpg"
-                          alt="Apres"
-                        />
-                      </div>
-                      <span aria-label="Photo après transformation">Après</span>
-                    </div>
+                    <span class="ba-label ba-label--before">Avant</span>
+                    <span class="ba-label ba-label--after">Après</span>
                   </div>
-                  <p class="testimonial-result">-20kg de gras</p>
-                  <p class="testimonial-text">
-                    “Ma transformation était inenvisageable il y a encore 1 an.
-                    Aujourd’hui je me suis enfin réapproprié mon corps.”
-                  </p>
-                  <p class="testimonial-author">Yas, 25 ans</p>
+                  <div class="card-body">
+                    <p class="testimonial-author">Yas, 25 ans</p>
+                    <p class="testimonial-result">-20kg de gras</p>
+                    <p class="testimonial-text">
+                      "Ma transformation était inenvisageable il y a encore 1
+                      an. Aujourd'hui je me suis enfin réapproprié mon corps."
+                    </p>
+                  </div>
                 </article>
               </div>
+              <!-- /track -->
             </div>
 
             <!-- Contrôles du carrousel -->
@@ -358,7 +472,6 @@
                 atteindre.
               </p>
             </article>
-
             <article class="process-step" data-step="2">
               <h3>Programme</h3>
               <p>
@@ -366,7 +479,6 @@
                 progresser.
               </p>
             </article>
-
             <article class="process-step" data-step="3">
               <h3>Suivi</h3>
               <p>
@@ -391,40 +503,28 @@
           <p class="section-subtitle">Change tes habitudes dès maintenant</p>
 
           <div class="pricing-grid">
-            <!-- Offre Active -->
             <article class="pricing-card active">
               <div class="pricing-price"><h3>Coaching Premium</h3></div>
               <ul class="pricing-features">
-                <li>Un programme d’entraînement personnalisé</li>
+                <li>Un programme d'entraînement personnalisé</li>
                 <li>Une diète adaptée à tes besoins</li>
                 <li>Un suivi sous forme de call hebdomadaire</li>
                 <li>
                   Un dossier complet pour annoter tes perfs et ta progression
                 </li>
                 <li>
-                  Une communication 24h/24 pour répondre à tes questions et corriger tes exécutions                    
+                  Une communication 24h/24 pour répondre à tes questions et
+                  corriger tes exécutions
                 </li>
                 <li>
-                    Des modules vidéos supplémentaires pour autonomiser ta pratique
+                  Des modules vidéos supplémentaires pour autonomiser ta
+                  pratique
                 </li>
               </ul>
               <a href="https://calendly.com/tomblaise/30min" class="btn-primary"
                 >Prendre l'accompagnement</a
               >
             </article>
-
-            <!-- Offre Locked 
-            <article class="pricing-card locked">
-              <div class="lock-icon" aria-label="Offre verrouillée">🔒</div>
-              <h3>Bientôt accessible</h3>
-              <button
-                class="btn-primary"
-                disabled
-                aria-label="Offre non disponible actuellement"
-              >
-                Indisponible
-              </button>
-            </article>-->
           </div>
         </div>
       </section>
@@ -453,9 +553,9 @@
               <div class="qa-answer">
                 <div class="qa-answer-inner">
                   <p>
-                    Il n’y a pas de garantie “remboursé sous 3 mois”.
-                    Une fois l’accompagnement démarré et les contenus accessibles, 
-                    aucun remboursement n’est possible, conformément aux CGV.
+                    Il n'y a pas de garantie "remboursé sous 3 mois". Une fois
+                    l'accompagnement démarré et les contenus accessibles, aucun
+                    remboursement n'est possible, conformément aux CGV.
                   </p>
                 </div>
               </div>
@@ -482,9 +582,7 @@
                     L'accompagnement s'adapte à ton emploi du temps, tes
                     contraintes et ton matériel disponible. Que tu t'entraînes
                     en salle ou à domicile, que tu disposes de 3 ou 6 séances
-                    par semaine, le programme sera construit pour toi. Les
-                    contraintes alimentaires et préférences personnelles sont
-                    également prises en compte dans ton plan nutrition.
+                    par semaine, le programme sera construit pour toi.
                   </p>
                 </div>
               </div>
@@ -495,9 +593,9 @@
               <div class="qa-answer">
                 <div class="qa-answer-inner">
                   <p>
-                    Un paiement en deux temps est prévu : 30 % à la signature, 
-                    puis le solde au démarrage du programme.
-                    D’autres facilités peuvent être envisagées au cas par cas.
+                    Un paiement en deux temps est prévu : 30 % à la signature,
+                    puis le solde au démarrage du programme. D'autres facilités
+                    peuvent être envisagées au cas par cas.
                   </p>
                 </div>
               </div>
@@ -511,10 +609,7 @@
                     Mon approche combine formation médicale (médecine et
                     kinésithérapie) et expérience terrain. Je ne te donne pas un
                     programme générique, mais une méthode adaptée à ta
-                    morphologie unique. Tu comprends le "pourquoi" derrière
-                    chaque exercice et chaque choix nutritionnel, ce qui te rend
-                    progressivement autonome et optimise tes résultats sur le
-                    long terme.
+                    morphologie unique.
                   </p>
                 </div>
               </div>
@@ -550,6 +645,7 @@
         </div>
       </div>
     </footer>
+
     <script src="./app.js" defer></script>
   </body>
 </html>

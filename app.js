@@ -1,14 +1,45 @@
+// ===== BEFORE / AFTER SLIDERS =====
+function initSliders() {
+  document.querySelectorAll(".ba-wrap").forEach((wrap) => {
+    const after   = wrap.querySelector(".ba-after");
+    const divider = wrap.querySelector(".ba-divider");
+    const handle  = wrap.querySelector(".ba-handle");
+    let dragging  = false;
+
+    function setPos(pct) {
+      pct = Math.max(2, Math.min(98, pct));
+      after.style.clipPath  = `inset(0 ${100 - pct}% 0 0)`;
+      divider.style.left    = pct + "%";
+      handle.style.left     = pct + "%";
+    }
+
+    function pctFromEvent(e) {
+      const rect = wrap.getBoundingClientRect();
+      const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+      return (x / rect.width) * 100;
+    }
+
+    setPos(50);
+
+    wrap.addEventListener("mousedown",  (e) => { dragging = true; setPos(pctFromEvent(e)); });
+    wrap.addEventListener("touchstart", (e) => { dragging = true; setPos(pctFromEvent(e)); }, { passive: true });
+    window.addEventListener("mousemove",  (e) => { if (dragging) setPos(pctFromEvent(e)); });
+    window.addEventListener("touchmove",  (e) => { if (dragging) setPos(pctFromEvent(e)); }, { passive: true });
+    window.addEventListener("mouseup",  () => (dragging = false));
+    window.addEventListener("touchend", () => (dragging = false));
+  });
+}
+
 // ===== CARROUSEL TÉMOIGNAGES =====
-const track = document.getElementById("testimonialsTrack");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
+const track        = document.getElementById("testimonialsTrack");
+const prevBtn      = document.getElementById("prevBtn");
+const nextBtn      = document.getElementById("nextBtn");
 const dotsContainer = document.getElementById("carouselDots");
-const cards = document.querySelectorAll(".testimonial-card");
+const cards        = document.querySelectorAll(".testimonial-card");
 
-let currentIndex = 0;
-let cardsPerView = 1;
+let currentIndex   = 0;
+let cardsPerView   = 3;
 
-// Déterminer le nombre de cards visibles selon la taille d'écran
 function updateCardsPerView() {
   if (window.innerWidth >= 1024) {
     cardsPerView = 3;
@@ -19,7 +50,6 @@ function updateCardsPerView() {
   }
 }
 
-// Créer les dots
 function createDots() {
   dotsContainer.innerHTML = "";
   const totalSlides = Math.ceil(cards.length / cardsPerView);
@@ -34,152 +64,96 @@ function createDots() {
   }
 }
 
-// Mettre à jour l'affichage du carrousel
 function updateCarousel() {
   const cardWidth = cards[0].offsetWidth;
   const gap = 24;
 
-  // Calculer le décalage basé sur l'index actuel
-  let offset = 0;
-  for (let i = 0; i < currentIndex; i++) {
-    offset += (cardWidth + gap) * cardsPerView;
-  }
-
+  const offset = currentIndex * (cardWidth + gap) * cardsPerView;
   track.style.transform = `translateX(-${offset}px)`;
 
-  // Mettre à jour les dots
   const dots = dotsContainer.querySelectorAll(".carousel-dot");
   dots.forEach((dot, index) => {
     dot.classList.toggle("active", index === currentIndex);
   });
 
-  // Gérer l'état des boutons
   const totalSlides = Math.ceil(cards.length / cardsPerView);
   prevBtn.disabled = currentIndex === 0;
   nextBtn.disabled = currentIndex >= totalSlides - 1;
 }
 
-// Aller à une slide spécifique
 function goToSlide(index) {
   const totalSlides = Math.ceil(cards.length / cardsPerView);
   currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
   updateCarousel();
 }
 
-// Navigation
 prevBtn.addEventListener("click", () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateCarousel();
-  }
+  if (currentIndex > 0) { currentIndex--; updateCarousel(); }
 });
 
 nextBtn.addEventListener("click", () => {
   const totalSlides = Math.ceil(cards.length / cardsPerView);
-  if (currentIndex < totalSlides - 1) {
-    currentIndex++;
-    updateCarousel();
-  }
+  if (currentIndex < totalSlides - 1) { currentIndex++; updateCarousel(); }
 });
 
-// Support du swipe tactile
+// Swipe tactile
 let touchStartX = 0;
-let touchEndX = 0;
+let touchEndX   = 0;
 
-track.addEventListener(
-  "touchstart",
-  (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  },
-  { passive: true }
-);
-
-track.addEventListener(
-  "touchend",
-  (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  },
-  { passive: true }
-);
+track.addEventListener("touchstart", (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+track.addEventListener("touchend",   (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); });
 
 function handleSwipe() {
-  const swipeThreshold = 50;
-  if (touchStartX - touchEndX > swipeThreshold) {
-    // Swipe vers la gauche
-    const totalSlides = Math.ceil(cards.length / cardsPerView);
-    if (currentIndex < totalSlides - 1) {
-      currentIndex++;
-      updateCarousel();
-    }
-  } else if (touchEndX - touchStartX > swipeThreshold) {
-    // Swipe vers la droite
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
-    }
+  const threshold = 50;
+  const totalSlides = Math.ceil(cards.length / cardsPerView);
+  if (touchStartX - touchEndX > threshold && currentIndex < totalSlides - 1) {
+    currentIndex++; updateCarousel();
+  } else if (touchEndX - touchStartX > threshold && currentIndex > 0) {
+    currentIndex--; updateCarousel();
   }
 }
 
-// Initialisation et responsive
 function init() {
   updateCardsPerView();
   createDots();
   currentIndex = 0;
   updateCarousel();
+  initSliders();
 }
 
-// Réinitialiser au redimensionnement
 let resizeTimer;
 window.addEventListener("resize", () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
-    const oldCardsPerView = cardsPerView;
+    const old = cardsPerView;
     updateCardsPerView();
-
-    // Réajuster l'index si nécessaire
-    if (oldCardsPerView !== cardsPerView) {
+    if (old !== cardsPerView) {
       const totalSlides = Math.ceil(cards.length / cardsPerView);
       currentIndex = Math.min(currentIndex, totalSlides - 1);
     }
-
     createDots();
     updateCarousel();
   }, 250);
 });
 
-// Initialisation au chargement
-window.addEventListener("DOMContentLoaded", init);
-
-// Fallback si DOMContentLoaded déjà passé
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", init);
 } else {
   init();
 }
+
 // ===== MENU BURGER =====
-const navbarToggle = document.getElementById("navbarToggle");
-const navbarLinks = document.getElementById("navbarLinks");
+const navbarToggle  = document.getElementById("navbarToggle");
+const navbarLinks   = document.getElementById("navbarLinks");
 const navbarOverlay = document.getElementById("navbarOverlay");
-const navLinks = navbarLinks.querySelectorAll("a");
-
-// Fonction pour ouvrir/fermer le menu
-function toggleMenu() {
-  const isActive = navbarLinks.classList.contains("active");
-
-  if (isActive) {
-    closeMenu();
-  } else {
-    openMenu();
-  }
-}
+const navLinks      = navbarLinks.querySelectorAll("a");
 
 function openMenu() {
   navbarLinks.classList.add("active");
   navbarOverlay.classList.add("active");
   navbarToggle.classList.add("active");
   navbarToggle.setAttribute("aria-expanded", "true");
-  document.body.style.overflow = "hidden"; // Empêche le scroll
+  document.body.style.overflow = "hidden";
 }
 
 function closeMenu() {
@@ -187,23 +161,16 @@ function closeMenu() {
   navbarOverlay.classList.remove("active");
   navbarToggle.classList.remove("active");
   navbarToggle.setAttribute("aria-expanded", "false");
-  document.body.style.overflow = ""; // Réactive le scroll
+  document.body.style.overflow = "";
 }
 
-// Event listeners
-navbarToggle.addEventListener("click", toggleMenu);
-navbarOverlay.addEventListener("click", closeMenu);
-
-// Fermer le menu lors du clic sur un lien
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    closeMenu();
-  });
+navbarToggle.addEventListener("click", () => {
+  navbarLinks.classList.contains("active") ? closeMenu() : openMenu();
 });
 
-// Fermer le menu avec la touche Escape
+navbarOverlay.addEventListener("click", closeMenu);
+navLinks.forEach((link) => link.addEventListener("click", closeMenu));
+
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && navbarLinks.classList.contains("active")) {
-    closeMenu();
-  }
+  if (e.key === "Escape" && navbarLinks.classList.contains("active")) closeMenu();
 });
